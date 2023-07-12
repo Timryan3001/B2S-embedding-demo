@@ -1,0 +1,53 @@
+Data connectivity - building your own connections to data
+    - Connector SDK
+        - a set of tools to interact with Tableau 
+    - Hyper api
+        - How desktop connects to Data and generates extracts, you can use python scripts to interact with the hyper api and create extracts for you
+    - Web Data connector
+        - how you can build something to connect to some other api to allow people to get data into tableau
+
+
+Advanced analytics
+    - Integrate with python, R and other coding laanguages.
+    - TabPy involves setting up a server which runs the Python scripts, you can then call these calculated fields within Tableau desktop
+    - Rserve is the equivalent on the R side
+    - Analytics extensions API, you can have a custom integration so you can setup something to run anything in any language, would be very code heavy you'd have to build it from scratch
+
+
+Automation & integration
+    - Automating tasks with REST API, Webhooks, Metadata API, TSC, Hyper API, TSM 
+    - The idea is about programmatically accessing content, users, sites etc on your tableau server from afar
+    - TSC is a big open source library which is python code written out to more easily interact with rest API
+    - TSM can be done through command line to automate processes on servers for example backups
+    - Webhooks allow you to send emails in response to certain responses from server. e.g email when an extract fails, send a message on slack, send a screenshot of a dashboard after it refreshes
+        - Webhooks are essentially interacting with the rest api as well, you need to set them up on the server though
+    - Metadata api Contains all the data lineage and metadata. Uses GraphQL. This drives data management add on which provides the data catalogue which tells you what is connected to what, essentially DM add on is just paying for a pretty web interface
+
+
+Extensibility
+    - Giving dashboards extra functionality
+    - Javascript API Brings Tableau into other web applications
+    - Extensions API Brings other applications into Tableau
+        - There is an extensions gallery
+
+
+Embedding 
+    - Embedding API
+    - Works with the JavaScript API which allows javascript code and a wbepage to interact with a Tableau Dashboard
+    - Can still integrate with the REST API to allow people to authenticate with server for example, allow for row level security
+    - Building custom apps with javascript as well
+    - You can embed I frames which have ask data in there. Most components of tableau can be embedded
+
+
+The main use case for embedding dashboards is to collect data display it in tableau and then build a web portal which users then buy access to
+
+Embedding licenses are limited to 4 data connection types
+
+Embedding auth can be done in a couple different ways, either through guest user access but then you're a bit limited in terms of seeing what users are using what. You can use a webtoken to authenticate as well which is better and allows for more control
+
+Need to be careful with fonts, depending whether you are doing client side or server side rendering if clients dont have fonts youre using on server, they will just get defaulted to times new roman for example. You can disable client side rendering of you want but then you need a more powerful server which will require a bigger core license. You can also include a blank polygon sheet on a dashbaord to force it to render server side which is a nice little hack
+
+
+Creating the code
+
+create index.html
